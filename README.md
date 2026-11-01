@@ -88,7 +88,7 @@ topic_status = "pens/klp20/ruang(1-4)/status"
 
 ---
 
-### 2. Konfigurasi Node-RED
+###  Konfigurasi Node-RED
 
 * **Paket Palette yang Harus Dipasang:**
   Masuk ke menu *Manage Palette* di Node-RED, lalu pasang *node* tambahan berikut:
@@ -102,7 +102,7 @@ topic_status = "pens/klp20/ruang(1-4)/status"
 
 ---
 
-### 3. Alamat Dashboard
+###  Alamat Dashboard
 Setelah *flow* berhasil di-*deploy*, antarmuka visualisasi data ruangan dapat diakses melalui browser pada alamat berikut:
 
 ```text
