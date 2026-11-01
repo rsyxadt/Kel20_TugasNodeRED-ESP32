@@ -1,6 +1,7 @@
-# Tugas Mata Kuliah Jaringan Sensor dan IoT — Kelompok 20
+# Evaluasi Mata Kuliah Jaringan Sensor dan IoT — Kelompok 20
 
-**Materi:** Node-RED dan ESP32 
+**Materi:** Node-RED dan ESP32 (Lanjutan MQTT pada ESP32)  
+**Program Studi / Institusi:** Politeknik Elektronika Negeri Surabaya (PENS)  
 
 ---
 
@@ -10,10 +11,10 @@ Setiap anggota bertanggung jawab merangkai dan memprogram 1 unit node ESP32 untu
 
 | No | Nama Anggota | NRP | Tanggung Jawab Node | Sensor yang Digunakan | Client ID MQTT |
 | :-: | :--- | :---: | :---: | :---: | :--- |
-| 1 | *Moh Adzril Aziz* | *2124600095* | **Ruang 1** (`ruang1`) | Modul Sensor **AHT10** (I2C) | `esp32-klp20-ruang1` |
-| 2 | *Rassya Aditia* | *2124600097* | **Ruang 2** (`ruang2`) | **Potensiometer** (`POT_R2`) | `esp32-klp20-ruang2` |
-| 3 | *Bima Syahputra* | *2124600115* | **Ruang 3** (`ruang3`) | **Potensiometer** (`POT_R3`) | `esp32-klp20-ruang3` |
-| 4 | *Ferrisca Maylanazwa* | *2124600117* | **Ruang 4** (`ruang4`) | **Potensiometer** (`POT_R4`) | `esp32-klp20-ruang4` |
+| 1 | *[Nama Anggota 1]* | *[NRP 1]* | **Ruang 1** (`ruang1`) | Modul Sensor **AHT10** (I2C) | `esp32-klp20-ruang1` |
+| 2 | *[Nama Anggota 2]* | *[NRP 2]* | **Ruang 2** (`ruang2`) | **Potensiometer** (`POT_R2`) | `esp32-klp20-ruang2` |
+| 3 | *[Nama Anggota 3]* | *[NRP 3]* | **Ruang 3** (`ruang3`) | **Potensiometer** (`POT_R3`) | `esp32-klp20-ruang3` |
+| 4 | *[Nama Anggota 4]* | *[NRP 4]* | **Ruang 4** (`ruang4`) | **Potensiometer** (`POT_R4`) | `esp32-klp20-ruang4` |
 
 ---
 
@@ -51,7 +52,7 @@ Sesuai ketentuan tugas, kelompok kami menggunakan **Mosquitto Broker Lokal** yan
 
 Berdasarkan penyesuaian perangkat keras yang digunakan oleh kelompok kami, **Ruang 1** menggunakan sensor suhu & kelembapan digital **AHT10 (I2C)**, sedangkan **Ruang 2, Ruang 3, dan Ruang 4** menggunakan **Potensiometer** sebagai input suhu dan kelembapan. Seluruh ruangan menggunakan pin **GPIO 2 (`D2`)** untuk Lampu 1 dan **GPIO 4 (`D4`)** untuk Lampu 2.
 
-### 2.1 Tabel Pemetaan Pin Ruang 1 (ESP32 DevKit + Sensor AHT10)
+### 2.1 Tabel Pemetaan Pin Ruang 1 (`esp32/ruang1/ruang1.ino`)
 | Komponen | Pin ESP32 | Label Skematik | Keterangan Rangkaian |
 | :--- | :---: | :---: | :--- |
 | **AHT10 – VIN** | `3V3` | `3V3` | Suplai tegangan 3.3V |
@@ -61,7 +62,7 @@ Berdasarkan penyesuaian perangkat keras yang digunakan oleh kelompok kami, **Rua
 | **LED Lampu 1 + Resistor 220 Ω** | `GPIO 2` (`D2`) | `LAMP1_R1` | Pin D2 → Resistor R2 (220 Ω) → Anoda LED 1 → Katoda ke GND |
 | **LED Lampu 2 + Resistor 220 Ω** | `GPIO 4` (`D4`) | `LAMP2_R1` | Pin D4 → Resistor R1 (220 Ω) → Anoda LED 2 → Katoda ke GND |
 
-### 2.2 Tabel Pemetaan Pin Ruang 2, Ruang 3, dan Ruang 4 (ESP32 DevKit + Potensiometer)
+### 2.2 Tabel Pemetaan Pin Ruang 2, Ruang 3, dan Ruang 4 (`esp32/ruang2..4`)
 | Komponen | Pin ESP32 | Label Skematik | Keterangan Rangkaian |
 | :--- | :---: | :---: | :--- |
 | **Potensiometer – VCC** | `3V3` | `3V3` | Suplai tegangan 3.3V |
@@ -125,17 +126,26 @@ Seluruh topic diawali dengan prefix kelompok **`pens/klp20/<nama_ruang>/<fungsi>
 ## 5. Struktur Repositori
 
 ```text
-├── README.md                       # Dokumentasi dan laporan proyek Kelompok 20
+├── Node-Red/
+│   └── flows_klp20.json            # File export flow Node-RED Kelompok 20
+├── docs/
+│   ├── images/
+│   │   ├── dashboardUI.png         # Screenshot halaman dashboard Node-RED (/ui)
+│   │   ├── flow.png                # Screenshot flow Node-RED Kelompok 20
+│   │   └── rangkaian.jpg           # Gambar skematik rangkaian Ruang 1 - Ruang 4
+│   └── docs                        # Catatan dokumentasi tambahan
 ├── esp32/
-│   ├── ruang1/                     # Source code ESP32 Ruang 1 (Program with AHT10.ino)
-│   ├── ruang2/                     # Source code ESP32 Ruang 2 (Program with Potensio.ino)
-│   ├── ruang3/                     # Source code ESP32 Ruang 3 (Program with Potensio.ino)
-│   └── ruang4/                     # Source code ESP32 Ruang 4 (Program with Potensio.ino)
-├── flows_klp20.json                # File export flow Node-RED Kelompok 20
-└── dokumentasi/
-    ├── skematik_rangkaian.jpg      # Gambar skematik rangkaian Ruang 1 - Ruang 4
-    ├── Node-Red.png                # Screenshot flow Node-RED Kelompok 20
-    └── dashboard_ui.png            # Screenshot halaman dashboard Node-RED (/ui)
+│   ├── ruang1/
+│   │   └── ruang1.ino              # Source code ESP32 Ruang 1 (Sensor AHT10)
+│   ├── ruang2/
+│   │   └── ruang2.ino              # Source code ESP32 Ruang 2 (Potensiometer)
+│   ├── ruang3/
+│   │   └── ruang3.ino              # Source code ESP32 Ruang 3 (Potensiometer)
+│   └── ruang4/
+│       └── ruang4.ino              # Source code ESP32 Ruang 4 (Potensiometer)
+├── video/
+│   └── link.md                     # Tautan video demonstrasi sistem
+└── README.md                       # Laporan utama proyek Kelompok 20
 ```
 
 ---
@@ -151,11 +161,15 @@ Seluruh topic diawali dengan prefix kelompok **`pens/klp20/<nama_ruang>/<fungsi>
 | 4 | Uji Last Will (LWT) | Mencabut catu daya salah satu ESP32 secara tiba-tiba | Setelah ~15 detik, status ruangan tersebut otomatis berubah menjadi `offline` | ✅ Berhasil |
 | 5 | Uji Retained Message | Me-*refresh* halaman browser dashboard Node-RED | Status terakhir (`online`/`offline`) langsung tampil berkat fitur *retain* | ✅ Berhasil |
 
-### Tangkapan Layar (Screenshot) & Skematik
-- **Link Video Demo:** *[Masukkan Link YouTube / Google Drive Video Demo di sini]*
-- **Skematik Rangkaian 4 Ruangan:**
-  ![Skematik Rangkaian](dokumentasi/skematik_rangkaian.jpg)
-- **Flow Node-RED (`Node-Red.png`):**
-  ![Flow Node-RED](dokumentasi/Node-Red.png)
-- **Dashboard Node-RED (`/ui`):**
-  ![Dashboard UI](dokumentasi/dashboard_ui.png)
+### Tautan Video Demo & Tangkapan Layar
+- **Link Video Demo:** Lihat pada file [`video/link.md`](video/link.md)
+- **File Flow Node-RED:** [`Node-Red/flows_klp20.json`](Node-Red/flows_klp20.json)
+
+#### 1. Skematik Rangkaian 4 Ruangan (`rangkaian.jpg`)
+![Skematik Rangkaian](docs/images/rangkaian.jpg)
+
+#### 2. Flow Node-RED (`flow.png`)
+![Flow Node-RED](docs/images/flow.png)
+
+#### 3. Tampilan Dashboard Node-RED (`dashboardUI.png`)
+![Dashboard UI](docs/images/dashboardUI.png)
