@@ -43,7 +43,25 @@ topic_led2_in    = "pens/klp20/ruang(1-4)/lamp2"
 
 topic_status = "pens/klp20/ruang(1-4)/status"
 
-7. cara menjalankan:
+## 🚀 Cara Menjalankan Kode ESP32
+
+### Opsi A: Menggunakan PlatformIO (VS Code)
+1. Buka folder `esp32/esp32_ruang/` di Visual Studio Code.
+2. Salin `include/secrets.h.example` menjadi `include/secrets.h`, lalu isi SSID dan Password Wi-Fi Anda.
+3. Pilih Environment board yang sesuai di status bar bawah PlatformIO:
+   * **`env:esp32_ruang12`** untuk mengunggah ke **ESP32 #1** (Ruang 1 & 2).
+   * **`env:esp32_ruang34`** untuk mengunggah ke **ESP32 #2** (Ruang 3 & 4).
+4. Klik tombol **Build (✓)** lalu **Upload (→)**.
+
+### Opsi B: Menggunakan Arduino IDE
+1. Buka berkas yang sesuai di Arduino IDE:
+   * **`esp32_ruang12.ino`** untuk board ESP32 #1.
+   * **`esp32_ruang34.ino`** untuk board ESP32 #2.
+2. Pasang library yang dibutuhkan via **Library Manager**:
+   * `PubSubClient` oleh Nick O'Leary
+   * `DHT sensor library` oleh Adafruit
+   * `Adafruit Unified Sensor` oleh Adafruit
+3. Pilih board **DOIT ESP32 DEVKIT V1** dan upload.
    
 library Arduino yang dibutuhkan dan langkah upload ke ESP32 (bagian mana yang diganti: ROOM, Wi-Fi),
 
