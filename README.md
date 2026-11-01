@@ -21,17 +21,19 @@ Evaluasi Jaringan Sensor dan IoT - Kelompok 20 (Monitoring &amp; Kontrol 4 Ruang
 5.2. Tabel Pin
    <img width="767" height="317" alt="image" src="https://github.com/user-attachments/assets/da695ce2-e9a2-4db0-b407-2dc5727fcbbf" />
 5.3. Gambar Rangkaian
-<img width="1060" height="747" alt="image" src="https://github.com/user-attachments/assets/19c0c695-26ab-499e-bc87-69fbff9f4854" />
+    <img width="1060" height="747" alt="image" src="https://github.com/user-attachments/assets/19c0c695-26ab-499e-bc87-69fbff9f4854" />
 
 6. Tabel topic final:
 
 7. Cara menjalankan:
 
 8. Screenshot Flow Node-RED and Dashboard:
+    <img width="532" height="558" alt="image" src="https://github.com/user-attachments/assets/27c7afdc-29ca-4d84-91b1-07024204cda4" />
 
-Hasil pengujian T1-T12:
+9. Hasil pengujian T1-T12:
 
-Ruang yang disimulasikan:
+10. Ruang yang disimulasikan:
 
-kendala dan solusi:
-Pembagian tugas anggota
+11. kendala dan solusi:
+
+12. Pembagian tugas anggota
