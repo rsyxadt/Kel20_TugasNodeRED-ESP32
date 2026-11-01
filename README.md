@@ -24,10 +24,15 @@ Evaluasi Jaringan Sensor dan IoT - Kelompok 20 (Monitoring &amp; Kontrol 4 Ruang
     <img width="1060" height="747" alt="image" src="https://github.com/user-attachments/assets/19c0c695-26ab-499e-bc87-69fbff9f4854" />
 
 6. Tabel topic final:
+topic_temp_out   = "pens/klp20/ruangx(1-4)/temperature";
+topic_hum_out    = "pens/klp20/ruang(1-4)/humidity";
+topic_led1_in    = "pens/klp20/ruang(1-4)/lamp1";
+topic_led2_in    = "pens/klp20/ruang(1-4)/lamp2";
+topic_device_out = "pens/klp20/ruang(1-4)/device_status"; 
 
-7. Cara menjalankan:
+8. Cara menjalankan:
 -
-8. Screenshot Flow Node-RED and Dashboard:
+9. Screenshot Flow Node-RED and Dashboard:
 
    <img width="532" height="558" alt="image" src="https://github.com/user-attachments/assets/18b97a59-ce71-4dc9-b598-cdb2169efd93" />
 
