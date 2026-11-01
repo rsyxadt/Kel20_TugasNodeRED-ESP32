@@ -17,10 +17,15 @@ Evaluasi Jaringan Sensor dan IoT - Kelompok 20 (Monitoring &amp; Kontrol 4 Ruang
 5. Perangkat keras:
    
 5.1. Daftar Komponen
+  
    <img width="872" height="490" alt="image" src="https://github.com/user-attachments/assets/265941d7-6a11-4c48-ac21-27b6edfdf853" />
+
 5.2. Tabel Pin
+  
    <img width="767" height="317" alt="image" src="https://github.com/user-attachments/assets/da695ce2-e9a2-4db0-b407-2dc5727fcbbf" />
+
 5.3. Gambar Rangkaian
+   
     <img width="1060" height="747" alt="image" src="https://github.com/user-attachments/assets/19c0c695-26ab-499e-bc87-69fbff9f4854" />
 
 6. Tabel topic final:
