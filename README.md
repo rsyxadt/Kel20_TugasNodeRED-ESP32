@@ -28,7 +28,7 @@ Evaluasi Jaringan Sensor dan IoT - Kelompok 20 (Monitoring &amp; Kontrol 4 Ruang
   <img width="852" height="391" alt="image" src="https://github.com/user-attachments/assets/25c80359-4374-4fdf-b249-546c549ab72f" />
 
     3. Gambar Rangkaian
-    ![Rangkaian ESP32 dan Sensor](docs/images/rangkaian.jpg)
+![Rangkaian ESP32 dan Sensor](docs/images/rangkaian.jpg)
 
 ## Tabel topic final:
 
