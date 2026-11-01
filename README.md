@@ -15,6 +15,7 @@ Link Video Presentasi:
 Arsitektur sistem:
 
 Perangkat keras:
+<img width="1060" height="747" alt="image" src="https://github.com/user-attachments/assets/19c0c695-26ab-499e-bc87-69fbff9f4854" />
 
 Tabel topic final:
 
