@@ -51,7 +51,9 @@ topic_device_out = "pens/klp20/ruang(1-4)/device_status";
     <img width="497" height="516" alt="image" src="https://github.com/user-attachments/assets/f23a4334-5af9-48a7-9a7d-899c6f2c6a81" />
 
 11. Ruang yang disimulasikan:
-ruang 1-4
-12. kendala dan solusi:
 
-13. Pembagian tugas anggota
+    ruang 1-4
+    
+13. kendala dan solusi:
+
+14. Pembagian tugas anggota
