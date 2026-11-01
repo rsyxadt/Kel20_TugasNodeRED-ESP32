@@ -21,8 +21,9 @@ Evaluasi Jaringan Sensor dan IoT - Kelompok 20 (Monitoring &amp; Kontrol 4 Ruang
    <img width="872" height="490" alt="image" src="https://github.com/user-attachments/assets/265941d7-6a11-4c48-ac21-27b6edfdf853" />
 
 5.2. Tabel Pin
-  
-   <img width="767" height="317" alt="image" src="https://github.com/user-attachments/assets/da695ce2-e9a2-4db0-b407-2dc5727fcbbf" />
+
+  <img width="842" height="442" alt="image" src="https://github.com/user-attachments/assets/4e425037-ee30-471a-9bed-ad7c581e57b5" />
+  <img width="852" height="391" alt="image" src="https://github.com/user-attachments/assets/25c80359-4374-4fdf-b249-546c549ab72f" />
 
 5.3. Gambar Rangkaian
    
