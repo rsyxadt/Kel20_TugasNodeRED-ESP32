@@ -41,6 +41,7 @@ topic_device_out = "pens/klp20/ruang(1-4)/device_status";
    <img width="532" height="558" alt="image" src="https://github.com/user-attachments/assets/18b97a59-ce71-4dc9-b598-cdb2169efd93" />
 
 10. Hasil pengujian T1-T12:
+    <img width="497" height="516" alt="image" src="https://github.com/user-attachments/assets/f23a4334-5af9-48a7-9a7d-899c6f2c6a81" />
 
 11. Ruang yang disimulasikan:
 
