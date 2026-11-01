@@ -42,7 +42,7 @@ topic_device_out = "pens/klp20/ruang(1-4)/device_status";
 
 7. cara menjalankan:
 -
-9. Screenshot Flow Node-RED and Dashboard:
+8. Screenshot Flow Node-RED and Dashboard:
 
    <img width="532" height="558" alt="image" src="https://github.com/user-attachments/assets/18b97a59-ce71-4dc9-b598-cdb2169efd93" />
 
