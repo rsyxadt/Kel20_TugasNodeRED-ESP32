@@ -1,11 +1,14 @@
 # Kel20_TugasNodeRED-ESP32
 Evaluasi Jaringan Sensor dan IoT - Kelompok 20 (Monitoring &amp; Kontrol 4 Ruangan dengan ESP32, MQTT, dan Node-RED)
 
-1. Anggota kelompok:
-    1.  Rassya Aditia
-    2.  Muh Adzril Aziz
-    3.  Ferrisca Maylanazwa Santoso
-    4.  Bima Saputra
+## 👥 Anggota Kelompok 20
+
+| Ruangan | Nama Anggota | NRP |
+| :--- | :--- | :--- |
+| **Ruang 1** | Muh Adzril Aziz | 2124600095 |
+| **Ruang 2** | Rassya Aditia | 2124600097 |
+| **Ruang 3** | Ferrisca Maylanazwa Santoso | 2124600117 |
+| **Ruang 4** | Bima Syahputra | 2124600115 |
 
 2. Link Video Demonstrasi: 
     (https://drive.google.com/file/d/12jOS07XiDOtgNVn_NuHebHhn_qD1p9H3/view?usp=sharing)
