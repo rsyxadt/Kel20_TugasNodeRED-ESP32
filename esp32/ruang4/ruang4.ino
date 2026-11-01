@@ -3,8 +3,8 @@
 #include "time.h" // Library bawaan ESP32 untuk waktu NTP
 
 // ================= Konfigurasi WiFi & MQTT =================
-const char* ssid        = "WARJO-EXTND";
-const char* password    = "miloanget";
+const char* ssid        = "SSID_LAB";
+const char* password    = "PASSWORD_LAB";
 const char* mqtt_server = "broker.hivemq.com"; // Sesuaikan dengan alamat broker yang dipakai
 const int   mqtt_port   = 1883;
 
