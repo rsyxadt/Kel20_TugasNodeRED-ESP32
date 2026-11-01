@@ -14,11 +14,11 @@ const long  gmtOffset_sec      = 7 * 3600; // WIB = UTC + 7 jam
 const int   daylightOffset_sec = 0;
 
 // ================= Topic MQTT =================
-const char* topic_temp_out   = "pens/klp20/ruang1/temperature";
-const char* topic_hum_out    = "pens/klp20/ruang1/humidity";
-const char* topic_led1_in    = "pens/klp20/ruang1/lamp1";
-const char* topic_led2_in    = "pens/klp20/ruang1/lamp2";
-const char* topic_device_out = "pens/klp20/ruang1/status"; // Hanya menggunakan device_status
+const char* topic_temp_out   = "pens/klp20/ruang2/temperature";
+const char* topic_hum_out    = "pens/klp20/ruang2/humidity";
+const char* topic_led1_in    = "pens/klp20/ruang2/lamp1";
+const char* topic_led2_in    = "pens/klp20/ruang2/lamp2";
+const char* topic_device_out = "pens/klp20/ruang2/status"; // Hanya menggunakan device_status
 
 // ================= Pin Hardware =================
 const int POT_PIN  = 5;  // Pin ADC ESP32 (Potensio / NTC)
