@@ -26,9 +26,9 @@ Evaluasi Jaringan Sensor dan IoT - Kelompok 20 (Monitoring &amp; Kontrol 4 Ruang
 6. Tabel topic final:
 
 7. Cara menjalankan:
-
+-
 8. Screenshot Flow Node-RED and Dashboard:
-   <img width="532" height="558" alt="image" src="https://github.com/user-attachments/assets/7dba69c6-1bca-40bf-acdf-e7026b22e206" />
+    ![Uploading image.png…]()
 
 9. Hasil pengujian T1-T12:
 
