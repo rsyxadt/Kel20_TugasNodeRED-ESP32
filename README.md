@@ -36,9 +36,9 @@ topic_hum_out    = "pens/klp20/ruang(1-4)/humidity"
 
 topic_led1_in    = "pens/klp20/ruang(1-4)/lamp1"
 
-topic_led2_in    = "pens/klp20/ruang(1-4)/lamp2";
+topic_led2_in    = "pens/klp20/ruang(1-4)/lamp2"
 
-topic_device_out = "pens/klp20/ruang(1-4)/device_status"; 
+topic_status = "pens/klp20/ruang(1-4)/status"
 
 7. cara menjalankan:
 -
