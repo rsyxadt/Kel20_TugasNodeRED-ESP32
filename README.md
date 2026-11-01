@@ -62,11 +62,51 @@ topic_status = "pens/klp20/ruang(1-4)/status"
    * `Adafruit Unified Sensor` oleh Adafruit
 3. Pilih board **DOIT ESP32 DEVKIT V1** dan upload.
    
-library Arduino yang dibutuhkan dan langkah upload ke ESP32 (bagian mana yang diganti: ROOM, Wi-Fi),
+1. Konfigurasi dan Upload Program ESP32
 
-cara import flows.json ke Node-RED dan paket palette yang harus dipasang,
+* **Library Arduino yang Dibutuhkan:**
+  * `PubSubClient` (untuk menangani protokol MQTT).
+  * `DHT sensor library` (untuk membaca sensor suhu dan kelembaban).
 
-alamat dashboard (http://10.32.81.35:1880/ui).
+* **Langkah-langkah Upload:**
+  1. Buka file kode di direktori `esp32/esp32_ruang/esp32_ruang.ino`[cite: 1] menggunakan Arduino IDE.
+  2. Cari dan sesuaikan bagian kode berikut sebelum melakukan *upload*:
+     * **Wi-Fi:** Ganti variabel SSID dan Password dengan jaringan Wi-Fi yang digunakan:
+       ```cpp
+       const char* ssid = "SSID_WIFI_KAMU";
+       const char* password = "PASSWORD_WIFI_KAMU";
+       ```
+     * **Broker MQTT (HiveMQ):** Ganti alamat server broker dengan HiveMQ:
+       ```cpp
+       const char* mqtt_server = "broker.hivemq.com"; // atau IP broker HiveMQ lokal/publik
+       ```
+     * **ROOM (Ruangan):** Sesuaikan string identifikasi ruangan pada payload atau topik MQTT:
+       ```cpp
+       String ROOM_ID = "ruang1"; // Ubah sesuai ruangan yang dipegang
+       ```
+  3. Hubungkan ESP32 ke komputer, pilih board **ESP32 Dev Module** di Arduino IDE, lalu klik **Upload**.
+
+---
+
+### 2. Konfigurasi Node-RED
+
+* **Paket Palette yang Harus Dipasang:**
+  Masuk ke menu *Manage Palette* di Node-RED, lalu pasang *node* tambahan berikut:
+  * `node-red-dashboard`
+
+* **Cara Import `flows.json`:**
+  1. Buka Node-RED di browser.
+  2. Klik ikon **Menu (garis tiga)** di pojok kanan atas, lalu pilih **Import**.
+  3. Pilih atau *drag & drop* file `flows.json` yang ada di dalam folder `node-red/` repository ini[cite: 1].
+  4. Klik tombol **Import**, lalu klik tombol merah **Deploy** di pojok kanan atas.
+
+---
+
+### 3. Alamat Dashboard
+Setelah *flow* berhasil di-*deploy*, antarmuka visualisasi data ruangan dapat diakses melalui browser pada alamat berikut:
+
+```text
+[http://10.32.81.35:1880/ui](http://10.32.81.35:1880/ui)
 
 ## Screenshot Flow Node-RED and Dashboard:
 
