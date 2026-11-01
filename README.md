@@ -3,6 +3,6 @@ Evaluasi Jaringan Sensor dan IoT - Kelompok 20 (Monitoring &amp; Kontrol 4 Ruang
 anggota kelompok:
 1. Rassya Aditia
 2. Muh Adzril Aziz
-3. ferrisca Maylanazwa Santoso
+3. Ferrisca Maylanazwa Santoso
 4. Bima Saputra
    
