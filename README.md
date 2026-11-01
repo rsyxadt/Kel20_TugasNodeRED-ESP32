@@ -11,10 +11,10 @@ Setiap anggota bertanggung jawab merangkai dan memprogram 1 unit node ESP32 untu
 
 | No | Nama Anggota | NRP | Tanggung Jawab Node | Sensor yang Digunakan | Client ID MQTT |
 | :-: | :--- | :---: | :---: | :---: | :--- |
-| 1 | *[Nama Anggota 1]* | *[NRP 1]* | **Ruang 1** (`ruang1`) | Modul Sensor **AHT10** (I2C) | `esp32-klp20-ruang1` |
-| 2 | *[Nama Anggota 2]* | *[NRP 2]* | **Ruang 2** (`ruang2`) | **Potensiometer** (`POT_R2`) | `esp32-klp20-ruang2` |
-| 3 | *[Nama Anggota 3]* | *[NRP 3]* | **Ruang 3** (`ruang3`) | **Potensiometer** (`POT_R3`) | `esp32-klp20-ruang3` |
-| 4 | *[Nama Anggota 4]* | *[NRP 4]* | **Ruang 4** (`ruang4`) | **Potensiometer** (`POT_R4`) | `esp32-klp20-ruang4` |
+| 1 | Moh Adzril Aziz | 2124600095 | *Ruang 1* (ruang1) | Modul Sensor *AHT10* (I2C) | esp32-klp20-ruang1 |
+| 2 | Rassya Aditia | 2124600097 | *Ruang 2* (ruang2) | *Potensiometer* (POT_R2) | esp32-klp20-ruang2 |
+| 3 | Bima Syahputra | 2124600115 | *Ruang 3* (ruang3) | *Potensiometer* (POT_R3) | esp32-klp20-ruang3 |
+| 4 | Ferrisca Maylanazwa | 2124600117 | *Ruang 4* (ruang4) | *Potensiometer* (POT_R4) | esp32-klp20-ruang4 |
 
 ---
 
