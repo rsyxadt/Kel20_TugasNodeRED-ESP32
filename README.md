@@ -27,7 +27,6 @@ Evaluasi Jaringan Sensor dan IoT - Kelompok 20 (Monitoring &amp; Kontrol 4 Ruang
 
 5.3. Gambar Rangkaian
    (docs/images/flow.png)
-    <img width="1060" height="747" alt="image" src="https://github.com/user-attachments/assets/19c0c695-26ab-499e-bc87-69fbff9f4854" />
 
 6. Tabel topic final:
 
