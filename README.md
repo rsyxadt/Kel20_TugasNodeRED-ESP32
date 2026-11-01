@@ -25,9 +25,13 @@ Evaluasi Jaringan Sensor dan IoT - Kelompok 20 (Monitoring &amp; Kontrol 4 Ruang
 
 6. Tabel topic final:
 topic_temp_out   = "pens/klp20/ruangx(1-4)/temperature"
+
 topic_hum_out    = "pens/klp20/ruang(1-4)/humidity"
+
 topic_led1_in    = "pens/klp20/ruang(1-4)/lamp1"
+
 topic_led2_in    = "pens/klp20/ruang(1-4)/lamp2";
+
 topic_device_out = "pens/klp20/ruang(1-4)/device_status"; 
 
 8. Cara menjalankan:
