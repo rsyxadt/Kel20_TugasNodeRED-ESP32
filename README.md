@@ -46,7 +46,7 @@ library Arduino yang dibutuhkan dan langkah upload ke ESP32 (bagian mana yang di
 
 cara import flows.json ke Node-RED dan paket palette yang harus dipasang,
 
-alamat dashboard (http://localhost:1880/ui).
+alamat dashboard (http://10.32.81.35:1880/ui).
 
 8. Screenshot Flow Node-RED and Dashboard:
 
