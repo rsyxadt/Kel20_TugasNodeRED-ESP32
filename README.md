@@ -11,10 +11,10 @@ Setiap anggota bertanggung jawab merangkai dan memprogram 1 unit node ESP32 untu
 
 | No | Nama Anggota | NRP | Tanggung Jawab Node | Sensor yang Digunakan | Client ID MQTT |
 | :-: | :--- | :---: | :---: | :---: | :--- |
-| 1 | Moh Adzril Aziz | 2124600095 | *Ruang 1* (ruang1) | Modul Sensor *AHT10* (I2C) | esp32-klp20-ruang1 |
-| 2 | Rassya Aditia | 2124600097 | *Ruang 2* (ruang2) | *Potensiometer* (POT_R2) | esp32-klp20-ruang2 |
-| 3 | Bima Syahputra | 2124600115 | *Ruang 3* (ruang3) | *Potensiometer* (POT_R3) | esp32-klp20-ruang3 |
-| 4 | Ferrisca Maylanazwa | 2124600117 | *Ruang 4* (ruang4) | *Potensiometer* (POT_R4) | esp32-klp20-ruang4 |
+| 1 | Moh Adzril Aziz | 2124600095 | **Ruang 1** (`ruang1`) | Modul Sensor **AHT10** (I2C) | `esp32-klp20-ruang1` |
+| 2 | Rassya Aditia | 2124600097 | **Ruang 2** (`ruang2`) | **Potensiometer** (`POT_R2`) | `esp32-klp20-ruang2` |
+| 3 | Bima Syahputra | 2124600115 | **Ruang 3** (`ruang3`) | **Potensiometer** (`POT_R3`) | `esp32-klp20-ruang3` |
+| 4 | Ferrisca Maylanazwa | 2124600117 | **Ruang 4** (`ruang4`) | **Potensiometer** (`POT_R4`) | `esp32-klp20-ruang4` |
 
 ---
 
@@ -152,14 +152,21 @@ Seluruh topic diawali dengan prefix kelompok **`pens/klp20/<nama_ruang>/<fungsi>
 
 ## 6. Hasil Pengujian & Dokumentasi
 
-### Daftar Pengujian Sistem
-| No | Skenario Pengujian | Prosedur Uji | Hasil yang Diharapkan | Status |
-| :-: | :--- | :--- | :--- | :-: |
-| 1 | Koneksi Awal & Status Online | Menyalakan keempat ESP32 | Status `ruang1`–`ruang4` di dashboard berubah menjadi `online` | ✅ Berhasil |
-| 2 | Pengiriman Data Sensor | Memantau grafik suhu & gauge kelembapan setiap 5 detik | Grafik menampilkan 4 garis ruangan & 4 gauge menampilkan nilai % kelembapan | ✅ Berhasil |
-| 3 | Kontrol 8 Saklar Lampu | Mengubah saklar Lampu 1 (`D2`) & Lampu 2 (`D4`) tiap ruangan di dashboard | LED fisik pada ESP32 ruangan terkait menyala (`1`) dan mati (`0`) seketika | ✅ Berhasil |
-| 4 | Uji Last Will (LWT) | Mencabut catu daya salah satu ESP32 secara tiba-tiba | Setelah ~15 detik, status ruangan tersebut otomatis berubah menjadi `offline` | ✅ Berhasil |
-| 5 | Uji Retained Message | Me-*refresh* halaman browser dashboard Node-RED | Status terakhir (`online`/`offline`) langsung tampil berkat fitur *retain* | ✅ Berhasil |
+### Daftar Pengujian Sistem (T1 – T12)
+| No | Kode Uji | Skenario Pengujian | Prosedur & Langkah Uji | Hasil yang Diharapkan | Status |
+| :-: | :-: | :--- | :--- | :--- | :-: |
+| 1 | **T1** | Koneksi Wi-Fi Awal | Menyalakan ESP32 Ruang 1 s.d. Ruang 4 | ESP32 berhasil tersambung ke jaringan Wi-Fi/Hotspot lokal | ✅ Berhasil |
+| 2 | **T2** | Koneksi ke Broker MQTT | Memantau Serial Monitor saat ESP32 *booting* | ESP32 berhasil melakukan koneksi ke Mosquitto Broker (`10.32.81.35:1883`) | ✅ Berhasil |
+| 3 | **T3** | Status Online Awal (*Retained*) | Membuka dashboard Node-RED di browser (`/ui`) | Indikator status keempat ruangan langsung menampilkan teks **`online`** | ✅ Berhasil |
+| 4 | **T4** | *Publish* Data Suhu Sensor | Membaca pengiriman data sensor periodik setiap 5 detik | Node-RED menerima data suhu valid dan menampilkannya pada chart line | ✅ Berhasil |
+| 5 | **T5** | *Publish* Data Kelembapan | Memantau pembaruan nilai kelembapan berkala | Keempat node `ui_gauge` menampilkan nilai persentase kelembapan dengan akurat | ✅ Berhasil |
+| 6 | **T6** | Validasi Sensor Gagal (`isnan`) | Menguji kondisi sensor terlepas sementara | Pembacaan gagal (`isnan`) tidak dikirim ke broker (mencegah data korup) | ✅ Berhasil |
+| 7 | **T7** | Kontrol Lampu 1 (`D2`) ON/OFF | Menekan saklar Lampu 1 pada dashboard untuk setiap ruangan | LED fisik Lampu 1 (`GPIO 2`) menyala dan mati seketika sesuai perintah | ✅ Berhasil |
+| 8 | **T8** | Kontrol Lampu 2 (`D4`) ON/OFF | Menekan saklar Lampu 2 pada dashboard untuk setiap ruangan | LED fisik Lampu 2 (`GPIO 4`) menyala dan mati seketika sesuai perintah | ✅ Berhasil |
+| 9 | **T9** | Validasi Filter Payload Aktuator | Mengirim payload selain string `"1"` atau `"0"` | Sistem mengabaikan payload di luar ketentuan dan mempertahankan status LED | ✅ Berhasil |
+| 10 | **T10** | Uji Last Will & Testament (LWT) | Mencabut catu daya (kabel USB) salah satu ESP32 secara paksa | Setelah batas *Keep Alive* (~15 detik), indikator status ruang berubah jadi **`offline`** | ✅ Berhasil |
+| 11 | **T11** | Auto-Reconnect Perangkat | Menghubungkan kembali catu daya ESP32 yang sebelumnya dicabut | ESP32 otomatis *reconnect* ke Wi-Fi & broker, lalu status kembali jadi **`online`** | ✅ Berhasil |
+| 12 | **T12** | Konsistensi Wildcard Node-RED | Menguji penangkapan data masukan via topic *wildcard* | Node `mqtt in` dengan *wildcard* (`pens/klp20/+/...`) berhasil merouting data dengan tepat | ✅ Berhasil |
 
 ### Tautan Video Demo & Tangkapan Layar
 - **Link Video Demo:** Lihat pada file [`video/link.md`](video/link.md)
