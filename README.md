@@ -34,7 +34,7 @@ topic_led2_in    = "pens/klp20/ruang(1-4)/lamp2";
 
 topic_device_out = "pens/klp20/ruang(1-4)/device_status"; 
 
-8. Cara menjalankan:
+8. ![flow node-red](Kel20_TugasNodeRED/docs/images/flow.png)
 -
 9. Screenshot Flow Node-RED and Dashboard:
 
