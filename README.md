@@ -42,7 +42,7 @@ topic_led2_in    = "pens/klp20/ruang(1-4)/lamp2"
 
 topic_status = "pens/klp20/ruang(1-4)/status"
 
-## 🚀 Cara Menjalankan Kode ESP32
+##  cara Menjalankan Kode ESP32
 
 ### Opsi A: Menggunakan PlatformIO (VS Code)
 1. Buka folder `esp32/esp32_ruang/` di Visual Studio Code.
