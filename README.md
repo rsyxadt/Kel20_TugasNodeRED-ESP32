@@ -10,28 +10,27 @@ Evaluasi Jaringan Sensor dan IoT - Kelompok 20 (Monitoring &amp; Kontrol 4 Ruang
 | **Ruang 3** | Ferrisca Maylanazwa Santoso | 2124600117 |
 | **Ruang 4** | Bima Syahputra | 2124600115 |
 
-2. Link Video Demonstrasi: 
+## Link Video Demonstrasi: 
     (https://drive.google.com/file/d/12jOS07XiDOtgNVn_NuHebHhn_qD1p9H3/view?usp=sharing)
 
-3. Link Video Presentasi:
+## Link Video Presentasi:
 
-4. Arsitektur sistem:
+## Arsitektur sistem:
 
-5. Perangkat keras:
-   
-5.1. Daftar Komponen
+## Perangkat keras:
+    1. Daftar Komponen
   
    <img width="872" height="490" alt="image" src="https://github.com/user-attachments/assets/265941d7-6a11-4c48-ac21-27b6edfdf853" />
 
-5.2. Tabel Pin
+    2. Tabel Pin
 
   <img width="842" height="442" alt="image" src="https://github.com/user-attachments/assets/4e425037-ee30-471a-9bed-ad7c581e57b5" />
   <img width="852" height="391" alt="image" src="https://github.com/user-attachments/assets/25c80359-4374-4fdf-b249-546c549ab72f" />
 
-5.3. Gambar Rangkaian
+    3. Gambar Rangkaian
     ![Rangkaian ESP32 dan Sensor](docs/images/rangkaian.jpg)
 
-6. Tabel topic final:
+## Tabel topic final:
 
 topic_temp_out   = "pens/klp20/ruangx(1-4)/temperature"
 
@@ -69,18 +68,18 @@ cara import flows.json ke Node-RED dan paket palette yang harus dipasang,
 
 alamat dashboard (http://10.32.81.35:1880/ui).
 
-8. Screenshot Flow Node-RED and Dashboard:
+## Screenshot Flow Node-RED and Dashboard:
 
    <img width="532" height="558" alt="image" src="https://github.com/user-attachments/assets/18b97a59-ce71-4dc9-b598-cdb2169efd93" />
 
-9. Hasil pengujian T1-T12:
+## Hasil pengujian T1-T12:
   
     <img width="497" height="516" alt="image" src="https://github.com/user-attachments/assets/f23a4334-5af9-48a7-9a7d-899c6f2c6a81" />
 
-10. Ruang yang disimulasikan:
+## Ruang yang disimulasikan:
 
     ruang 1-4
     
-11. kendala dan solusi:
+## kendala dan solusi:
 
-12. Pembagian tugas anggota
+## Pembagian tugas anggota
