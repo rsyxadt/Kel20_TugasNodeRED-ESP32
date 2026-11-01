@@ -41,6 +41,7 @@ topic_led2_in    = "pens/klp20/ruang(1-4)/lamp2"
 topic_status = "pens/klp20/ruang(1-4)/status"
 
 7. cara menjalankan:
+   
 library Arduino yang dibutuhkan dan langkah upload ke ESP32 (bagian mana yang diganti: ROOM, Wi-Fi),
 
 cara import flows.json ke Node-RED dan paket palette yang harus dipasang,
