@@ -48,18 +48,18 @@ cara import flows.json ke Node-RED dan paket palette yang harus dipasang,
 
 alamat dashboard (http://localhost:1880/ui).
 
-9. Screenshot Flow Node-RED and Dashboard:
+8. Screenshot Flow Node-RED and Dashboard:
 
    <img width="532" height="558" alt="image" src="https://github.com/user-attachments/assets/18b97a59-ce71-4dc9-b598-cdb2169efd93" />
 
-10. Hasil pengujian T1-T12:
+9. Hasil pengujian T1-T12:
   
     <img width="497" height="516" alt="image" src="https://github.com/user-attachments/assets/f23a4334-5af9-48a7-9a7d-899c6f2c6a81" />
 
-11. Ruang yang disimulasikan:
+10. Ruang yang disimulasikan:
 
     ruang 1-4
     
-13. kendala dan solusi:
+11. kendala dan solusi:
 
-14. Pembagian tugas anggota
+12. Pembagian tugas anggota
