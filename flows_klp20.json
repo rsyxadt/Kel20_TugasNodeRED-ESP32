@@ -1,0 +1,853 @@
+[
+    {
+        "id": "da39ee48c8fee896",
+        "type": "tab",
+        "label": "Monitoring Gedung IoT",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "dad00e8dae07a1fb",
+        "type": "mqtt in",
+        "z": "da39ee48c8fee896",
+        "name": "Sub Temperature",
+        "topic": "pens/klp20/+/temperature",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "fdaa2bf3dd9e6a9f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 100,
+        "wires": [
+            [
+                "727f46150ddad272",
+                "831697f132a67114"
+            ]
+        ]
+    },
+    {
+        "id": "831697f132a67114",
+        "type": "debug",
+        "z": "da39ee48c8fee896",
+        "name": "Debug Suhu",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 370,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "727f46150ddad272",
+        "type": "function",
+        "z": "da39ee48c8fee896",
+        "name": "Ambil Nama Ruang",
+        "func": "const parts = msg.topic.split(\"/\");\nmsg.topic = parts[2];\nmsg.payload = Number(msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 120,
+        "wires": [
+            [
+                "8ee8a23e6153e094"
+            ]
+        ]
+    },
+    {
+        "id": "8ee8a23e6153e094",
+        "type": "ui_chart",
+        "z": "da39ee48c8fee896",
+        "name": "Chart Suhu (°C)",
+        "group": "grp_suhu",
+        "order": 1,
+        "width": 12,
+        "height": 6,
+        "label": "Suhu Keempat Ruangan (°C)",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "Menunggu data suhu...",
+        "dot": false,
+        "ymin": "15",
+        "ymax": "45",
+        "removeOlder": "10",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#ff7f0e",
+            "#2ca02c",
+            "#d62728",
+            "#9467bd",
+            "#8c564b",
+            "#e377c2",
+            "#7f7f7f",
+            "#bcbd22"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 620,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9b71bcde742e75fa",
+        "type": "mqtt in",
+        "z": "da39ee48c8fee896",
+        "name": "Sub Humidity",
+        "topic": "pens/klp20/+/humidity",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "fdaa2bf3dd9e6a9f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 260,
+        "wires": [
+            [
+                "2769ff1f2571b1d6",
+                "54fffeeada0e69b4"
+            ]
+        ]
+    },
+    {
+        "id": "2769ff1f2571b1d6",
+        "type": "debug",
+        "z": "da39ee48c8fee896",
+        "name": "Debug Kelembapan",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 390,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "54fffeeada0e69b4",
+        "type": "switch",
+        "z": "da39ee48c8fee896",
+        "name": "Filter Ruang (Hum)",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "ruang1",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "ruang2",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "ruang3",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "ruang4",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 4,
+        "x": 390,
+        "y": 260,
+        "wires": [
+            [
+                "12a720e7c331528f"
+            ],
+            [
+                "7e2f2a4a2c81157a"
+            ],
+            [
+                "4788324cb866c6ab"
+            ],
+            [
+                "6bcf54640eb3063b"
+            ]
+        ]
+    },
+    {
+        "id": "12a720e7c331528f",
+        "type": "ui_gauge",
+        "z": "da39ee48c8fee896",
+        "name": "Kelembapan R1",
+        "group": "grp_ruang1",
+        "order": 2,
+        "width": 6,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Kelembapan",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 620,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "7e2f2a4a2c81157a",
+        "type": "ui_gauge",
+        "z": "da39ee48c8fee896",
+        "name": "Kelembapan R2",
+        "group": "grp_ruang2",
+        "order": 2,
+        "width": 6,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Kelembapan",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 620,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "4788324cb866c6ab",
+        "type": "ui_gauge",
+        "z": "da39ee48c8fee896",
+        "name": "Kelembapan R3",
+        "group": "grp_ruang3",
+        "order": 2,
+        "width": 6,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Kelembapan",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 620,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "6bcf54640eb3063b",
+        "type": "ui_gauge",
+        "z": "da39ee48c8fee896",
+        "name": "Kelembapan R4",
+        "group": "grp_ruang4",
+        "order": 2,
+        "width": 6,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Kelembapan",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 620,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "55d8a4ee5e8773bb",
+        "type": "mqtt in",
+        "z": "da39ee48c8fee896",
+        "name": "Sub Status",
+        "topic": "pens/klp20/+/status",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "fdaa2bf3dd9e6a9f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 440,
+        "wires": [
+            [
+                "b34acb94bd7e2ba5",
+                "e3c4e7f1ef110d13"
+            ]
+        ]
+    },
+    {
+        "id": "b34acb94bd7e2ba5",
+        "type": "debug",
+        "z": "da39ee48c8fee896",
+        "name": "Debug Status",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "e3c4e7f1ef110d13",
+        "type": "switch",
+        "z": "da39ee48c8fee896",
+        "name": "Filter Ruang (Status)",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "ruang1",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "ruang2",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "ruang3",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "ruang4",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 4,
+        "x": 390,
+        "y": 440,
+        "wires": [
+            [
+                "82343e7362acf5ac"
+            ],
+            [
+                "2be8b38061f53c25"
+            ],
+            [
+                "aee88241344bd85b"
+            ],
+            [
+                "b4ca2307b69d58e6"
+            ]
+        ]
+    },
+    {
+        "id": "82343e7362acf5ac",
+        "type": "ui_text",
+        "z": "da39ee48c8fee896",
+        "group": "grp_ruang1",
+        "order": 1,
+        "width": 6,
+        "height": 1,
+        "name": "Status R1",
+        "label": "Status ESP32:",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 610,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "2be8b38061f53c25",
+        "type": "ui_text",
+        "z": "da39ee48c8fee896",
+        "group": "grp_ruang2",
+        "order": 1,
+        "width": 6,
+        "height": 1,
+        "name": "Status R2",
+        "label": "Status ESP32:",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 610,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "aee88241344bd85b",
+        "type": "ui_text",
+        "z": "da39ee48c8fee896",
+        "group": "grp_ruang3",
+        "order": 1,
+        "width": 6,
+        "height": 1,
+        "name": "Status R3",
+        "label": "Status ESP32:",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 610,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "b4ca2307b69d58e6",
+        "type": "ui_text",
+        "z": "da39ee48c8fee896",
+        "group": "grp_ruang4",
+        "order": 1,
+        "width": 6,
+        "height": 1,
+        "name": "Status R4",
+        "label": "Status ESP32:",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 610,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "4555787444b1f26c",
+        "type": "ui_switch",
+        "z": "da39ee48c8fee896",
+        "name": "R1 Lampu 1",
+        "label": "Lampu 1",
+        "tooltip": "",
+        "group": "grp_ruang1",
+        "order": 3,
+        "width": 3,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "pens/klp20/ruang1/lamp1",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "1",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "0",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": true,
+        "className": "",
+        "x": 130,
+        "y": 580,
+        "wires": [
+            [
+                "08063c8b715651c1"
+            ]
+        ]
+    },
+    {
+        "id": "a0959a355597ab9a",
+        "type": "ui_switch",
+        "z": "da39ee48c8fee896",
+        "name": "R1 Lampu 2",
+        "label": "Lampu 2",
+        "tooltip": "",
+        "group": "grp_ruang1",
+        "order": 4,
+        "width": 3,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "pens/klp20/ruang1/lamp2",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "1",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "0",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": true,
+        "className": "",
+        "x": 130,
+        "y": 620,
+        "wires": [
+            [
+                "08063c8b715651c1"
+            ]
+        ]
+    },
+    {
+        "id": "9fdb112f82a9629d",
+        "type": "ui_switch",
+        "z": "da39ee48c8fee896",
+        "name": "R2 Lampu 1",
+        "label": "Lampu 1",
+        "tooltip": "",
+        "group": "grp_ruang2",
+        "order": 3,
+        "width": 3,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "pens/klp20/ruang2/lamp1",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "1",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "0",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": true,
+        "className": "",
+        "x": 130,
+        "y": 660,
+        "wires": [
+            [
+                "08063c8b715651c1"
+            ]
+        ]
+    },
+    {
+        "id": "8936257f368e30df",
+        "type": "ui_switch",
+        "z": "da39ee48c8fee896",
+        "name": "R2 Lampu 2",
+        "label": "Lampu 2",
+        "tooltip": "",
+        "group": "grp_ruang2",
+        "order": 4,
+        "width": 3,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "pens/klp20/ruang2/lamp2",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "1",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "0",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": true,
+        "x": 130,
+        "y": 700,
+        "wires": [
+            [
+                "08063c8b715651c1"
+            ]
+        ]
+    },
+    {
+        "id": "1491b8b3d734274f",
+        "type": "ui_switch",
+        "z": "da39ee48c8fee896",
+        "name": "R3 Lampu 1",
+        "label": "Lampu 1",
+        "tooltip": "",
+        "group": "grp_ruang3",
+        "order": 3,
+        "width": 3,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "pens/klp20/ruang3/lamp1",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "1",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "0",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": true,
+        "x": 130,
+        "y": 740,
+        "wires": [
+            [
+                "08063c8b715651c1"
+            ]
+        ]
+    },
+    {
+        "id": "efb7a1345bf0888b",
+        "type": "ui_switch",
+        "z": "da39ee48c8fee896",
+        "name": "R3 Lampu 2",
+        "label": "Lampu 2",
+        "tooltip": "",
+        "group": "grp_ruang3",
+        "order": 4,
+        "width": 3,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "pens/klp20/ruang3/lamp2",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "1",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "0",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": true,
+        "x": 130,
+        "y": 780,
+        "wires": [
+            [
+                "08063c8b715651c1"
+            ]
+        ]
+    },
+    {
+        "id": "bb9cbf3d2111259e",
+        "type": "ui_switch",
+        "z": "da39ee48c8fee896",
+        "name": "R4 Lampu 1",
+        "label": "Lampu 1",
+        "tooltip": "",
+        "group": "grp_ruang4",
+        "order": 3,
+        "width": 3,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "pens/klp20/ruang4/lamp1",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "1",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "0",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": true,
+        "className": "",
+        "x": 130,
+        "y": 820,
+        "wires": [
+            [
+                "08063c8b715651c1"
+            ]
+        ]
+    },
+    {
+        "id": "f60af8e548887c5e",
+        "type": "ui_switch",
+        "z": "da39ee48c8fee896",
+        "name": "R4 Lampu 2",
+        "label": "Lampu 2",
+        "tooltip": "",
+        "group": "grp_ruang4",
+        "order": 4,
+        "width": 3,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "pens/klp20/ruang4/lamp2",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "1",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "0",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": true,
+        "x": 130,
+        "y": 860,
+        "wires": [
+            [
+                "08063c8b715651c1"
+            ]
+        ]
+    },
+    {
+        "id": "08063c8b715651c1",
+        "type": "mqtt out",
+        "z": "da39ee48c8fee896",
+        "name": "Publish Lampu (QoS 1)",
+        "topic": "",
+        "qos": "1",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "fdaa2bf3dd9e6a9f",
+        "x": 430,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "fdaa2bf3dd9e6a9f",
+        "type": "mqtt-broker",
+        "name": "hivemq",
+        "broker": "broker.hivemq.com",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "grp_suhu",
+        "type": "ui_group",
+        "name": "Suhu",
+        "tab": "ui_tab_gedung",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "grp_ruang1",
+        "type": "ui_group",
+        "name": "Ruang 1",
+        "tab": "ui_tab_gedung",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "grp_ruang2",
+        "type": "ui_group",
+        "name": "Ruang 2",
+        "tab": "ui_tab_gedung",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "grp_ruang3",
+        "type": "ui_group",
+        "name": "Ruang 3",
+        "tab": "ui_tab_gedung",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "grp_ruang4",
+        "type": "ui_group",
+        "name": "Ruang 4",
+        "tab": "ui_tab_gedung",
+        "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "ui_tab_gedung",
+        "type": "ui_tab",
+        "name": "Gedung",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "56ef47313853d640",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6"
+        }
+    }
+]
