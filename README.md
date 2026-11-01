@@ -27,7 +27,7 @@ Evaluasi Jaringan Sensor dan IoT - Kelompok 20 (Monitoring &amp; Kontrol 4 Ruang
 
 5.3. Gambar Rangkaian
 
-   (docs/images/flow.png)
+   (docs/images/rangkaian.png)
 
 6. Tabel topic final:
 
