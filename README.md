@@ -1,7 +1,6 @@
 # Tugas Mata Kuliah Jaringan Sensor dan IoT — Kelompok 20
 
 **Materi:** Node-RED dan ESP32 (Lanjutan MQTT pada ESP32)  
-**Program Studi / Institusi:** Politeknik Elektronika Negeri Surabaya (PENS)  
 
 ---
 
